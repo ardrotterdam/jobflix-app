@@ -8,18 +8,18 @@ const App = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [showJobForm, setShowJobForm] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
-  const [jobs, setJobs] = useState([
+const [jobs, setJobs] = useState([
     {
       id: 1,
-      titel: 'Frontend Developer',
+      titel: 'Senior Frontend Developer',
       bedrijf: 'TechStart Amsterdam',
       locatie: 'Amsterdam',
-      salaris: '€3.500 - €5.000',
+      salaris: '€4.500 - €6.000',
       type: 'Voltijd',
       categorie: 'IT',
-      beschrijving: 'Wij zoeken een ervaren Frontend Developer om ons team te versterken. Je werkt met React, TypeScript en moderne tools voor innovatieve webapplicaties.',
-      vereisten: ['3+ jaar ervaring met React', 'TypeScript kennis', 'CSS/SCSS ervaring', 'Git workflow'],
-      geplaatst: '2 dagen geleden'
+      beschrijving: 'Wij zoeken een ervaren Senior Frontend Developer om ons team te versterken. Je werkt met React, TypeScript en moderne tools voor innovatieve webapplicaties.',
+      vereisten: ['5+ jaar ervaring met React', 'TypeScript expertise', 'CSS/SCSS gevorderd', 'Git workflow', 'Agile/Scrum ervaring'],
+      geplaatst: '1 dag geleden'
     },
     {
       id: 2,
@@ -30,20 +30,224 @@ const App = () => {
       type: 'Voltijd',
       categorie: 'Marketing',
       beschrijving: 'Ervaren Marketing Manager gezocht voor het leiden van marketingcampagnes en teammanagement in een groeiend bedrijf.',
-      vereisten: ['5+ jaar marketing ervaring', 'Teamleiding ervaring', 'Digital marketing kennis', 'Google Analytics'],
-      geplaatst: '1 dag geleden'
+      vereisten: ['5+ jaar marketing ervaring', 'Teamleiding ervaring', 'Digital marketing kennis', 'Google Analytics', 'Budget beheer'],
+      geplaatst: '2 dagen geleden'
     },
     {
       id: 3,
-      titel: 'UX Designer',
+      titel: 'UX/UI Designer',
       bedrijf: 'Design Studio Utrecht',
       locatie: 'Utrecht',
-      salaris: '€3.000 - €4.500',
+      salaris: '€3.500 - €5.000',
+      type: 'Voltijd',
+      categorie: 'Design',
+      beschrijving: 'Creatieve UX/UI Designer om gebruiksvriendelijke interfaces te ontwerpen voor diverse klanten en digitale projecten.',
+      vereisten: ['Portfolio met UX/UI projecten', 'Figma/Sketch expertise', 'User research ervaring', 'Prototyping skills', 'Design thinking'],
+      geplaatst: '3 dagen geleden'
+    },
+    {
+      id: 4,
+      titel: 'Fullstack Developer',
+      bedrijf: 'InnovaTech BV',
+      locatie: 'Eindhoven',
+      salaris: '€4.000 - €5.500',
+      type: 'Voltijd',
+      categorie: 'IT',
+      beschrijving: 'Fullstack Developer voor het ontwikkelen van webapplicaties met moderne technologieën. Werk aan uitdagende projecten in een innovatieve omgeving.',
+      vereisten: ['JavaScript/TypeScript', 'React of Vue.js', 'Node.js ervaring', 'Database kennis (SQL/NoSQL)', 'REST API ontwikkeling'],
+      geplaatst: '1 dag geleden'
+    },
+    {
+      id: 5,
+      titel: 'HR Business Partner',
+      bedrijf: 'People First',
+      locatie: 'Den Haag',
+      salaris: '€3.800 - €5.200',
+      type: 'Voltijd',
+      categorie: 'HR',
+      beschrijving: 'HR Business Partner die strategisch meedenkt met het management en HR-beleid vormgeeft. Je bent de schakel tussen HR en business.',
+      vereisten: ['HBO werk- en denkniveau', 'HR ervaring (4+ jaar)', 'Business partnering ervaring', 'Coaching vaardigheden', 'Arbeidsrecht kennis'],
+      geplaatst: '4 dagen geleden'
+    },
+    {
+      id: 6,
+      titel: 'Sales Account Manager',
+      bedrijf: 'SalesForce Nederland',
+      locatie: 'Amsterdam',
+      salaris: '€3.200 - €4.800',
+      type: 'Voltijd',
+      categorie: 'Verkoop',
+      beschrijving: 'Ambitieuze Sales Account Manager voor het uitbreiden van ons klantenbestand. Je beheert bestaande klanten en werft nieuwe prospects.',
+      vereisten: ['Sales ervaring (3+ jaar)', 'CRM systemen kennis', 'Klantgerichtheid', 'Onderhandelingsvaardigheden', 'Resultaatgericht'],
+      geplaatst: '2 dagen geleden'
+    },
+    {
+      id: 7,
+      titel: 'Financial Controller',
+      bedrijf: 'FinanceCorps',
+      locatie: 'Rotterdam',
+      salaris: '€4.200 - €6.500',
+      type: 'Voltijd',
+      categorie: 'Finance',
+      beschrijving: 'Financial Controller voor het opstellen van management rapportages en het adviseren van management over financiële vraagstukken.',
+      vereisten: ['WO/HBO Financieel-Economisch', 'Controller ervaring (4+ jaar)', 'Excel gevorderd', 'SAP of soortgelijke ERP', 'Analytische vaardigheden'],
+      geplaatst: '3 dagen geleden'
+    },
+    {
+      id: 8,
+      titel: 'Junior Frontend Developer',
+      bedrijf: 'WebBouw Amsterdam',
+      locatie: 'Amsterdam',
+      salaris: '€2.800 - €3.800',
+      type: 'Voltijd',
+      categorie: 'IT',
+      beschrijving: 'Junior Frontend Developer met groeimogelijkheden. Je leert van ervaren developers en werkt aan diverse webprojecten.',
+      vereisten: ['HTML, CSS, JavaScript basis', 'React of Vue.js interesse', 'Git basics', 'Leergierigheid', 'Team player'],
+      geplaatst: '1 dag geleden'
+    },
+    {
+      id: 9,
+      titel: 'Grafisch Designer',
+      bedrijf: 'Creative Agency',
+      locatie: 'Utrecht',
+      salaris: '€2.900 - €4.200',
       type: 'Parttime',
       categorie: 'Design',
-      beschrijving: 'Creatieve UX Designer om gebruiksvriendelijke interfaces te ontwerpen voor diverse klanten en projecten.',
-      vereisten: ['Portfolio met UX projecten', 'Figma/Sketch ervaring', 'User research ervaring', 'Prototyping skills'],
+      beschrijving: 'Grafisch Designer voor het maken van visuele content voor diverse klanten. Van logo\'s tot complete huisstijlen.',
+      vereisten: ['Adobe Creative Suite', 'Portfolio met grafisch werk', 'Creativiteit en oog voor detail', 'Klantcontact ervaring', 'Deadline-gericht'],
+      geplaatst: '5 dagen geleden'
+    },
+    {
+      id: 10,
+      titel: 'DevOps Engineer',
+      bedrijf: 'CloudSolutions',
+      locatie: 'Groningen',
+      salaris: '€4.800 - €6.800',
+      type: 'Voltijd',
+      categorie: 'IT',
+      beschrijving: 'DevOps Engineer voor het beheren van cloud infrastructure en CI/CD pipelines. Je werkt met de nieuwste technologieën.',
+      vereisten: ['AWS/Azure ervaring', 'Docker/Kubernetes', 'Jenkins/GitLab CI', 'Linux/Unix kennis', 'Infrastructure as Code'],
+      geplaatst: '2 dagen geleden'
+    },
+    {
+      id: 11,
+      titel: 'Content Marketing Specialist',
+      bedrijf: 'Digital Marketing Hub',
+      locatie: 'Tilburg',
+      salaris: '€3.000 - €4.500',
+      type: 'Parttime',
+      categorie: 'Marketing',
+      beschrijving: 'Content Marketing Specialist voor het creëren van boeiende content die onze doelgroep inspireert en converteert.',
+      vereisten: ['Content strategie ervaring', 'SEO kennis', 'Social media ervaring', 'Copywriting skills', 'Analytics tools'],
       geplaatst: '3 dagen geleden'
+    },
+    {
+      id: 12,
+      titel: 'Recruitment Consultant',
+      bedrijf: 'TalentFinders',
+      locatie: 'Breda',
+      salaris: '€2.700 - €4.000',
+      type: 'Voltijd',
+      categorie: 'HR',
+      beschrijving: 'Recruitment Consultant voor het vinden van de juiste kandidaten voor onze opdrachtgevers. Volledige recruitment cyclus.',
+      vereisten: ['HBO denkniveau', 'Mensen kennis', 'Commerciële instelling', 'Communicatieve vaardigheden', 'Stressbestendig'],
+      geplaatst: '4 dagen geleden'
+    },
+    {
+      id: 13,
+      titel: 'Inside Sales Representative',
+      bedrijf: 'TechSales Pro',
+      locatie: 'Almere',
+      salaris: '€2.500 - €3.500',
+      type: 'Voltijd',
+      categorie: 'Verkoop',
+      beschrijving: 'Inside Sales Representative voor telefonische verkoop en klantcontact. Je genereert leads en sluit deals.',
+      vereisten: ['Sales affiniteit', 'Telefonische verkoop ervaring', 'CRM ervaring', 'Doorzettingsvermogen', 'Klantgerichtheid'],
+      geplaatst: '1 dag geleden'
+    },
+    {
+      id: 14,
+      titel: 'Business Analyst',
+      bedrijf: 'Analytics Corp',
+      locatie: 'Maastricht',
+      salaris: '€3.800 - €5.500',
+      type: 'Voltijd',
+      categorie: 'Finance',
+      beschrijving: 'Business Analyst voor het analyseren van bedrijfsprocessen en het adviseren over verbeteringen en optimalisaties.',
+      vereisten: ['WO/HBO Business/Economie', 'Analytische vaardigheden', 'Excel/Power BI', 'Process mapping', 'Presentatie skills'],
+      geplaatst: '6 dagen geleden'
+    },
+    {
+      id: 15,
+      titel: 'Motion Graphics Designer',
+      bedrijf: 'VideoCreatives',
+      locatie: 'Haarlem',
+      salaris: '€3.200 - €4.800',
+      type: 'Freelance',
+      categorie: 'Design',
+      beschrijving: 'Motion Graphics Designer voor het maken van animaties en video content voor diverse media en platformen.',
+      vereisten: ['After Effects expertise', 'Cinema 4D kennis', 'Creative portfolio', 'Video editing skills', 'Storytelling vermogen'],
+      geplaatst: '2 dagen geleden'
+    },
+    {
+      id: 16,
+      titel: 'Python Developer',
+      bedrijf: 'DataScience Labs',
+      locatie: 'Delft',
+      salaris: '€4.000 - €5.800',
+      type: 'Voltijd',
+      categorie: 'IT',
+      beschrijving: 'Python Developer voor data-analyse en machine learning projecten. Je werkt met grote datasets en AI modellen.',
+      vereisten: ['Python expertise', 'Pandas/NumPy/SciKit', 'Machine Learning kennis', 'SQL databases', 'Git versioning'],
+      geplaatst: '3 dagen geleden'
+    },
+    {
+      id: 17,
+      titel: 'Digital Marketing Manager',
+      bedrijf: 'OnlineGrowth',
+      locatie: 'Nijmegen',
+      salaris: '€3.600 - €5.200',
+      type: 'Voltijd',
+      categorie: 'Marketing',
+      beschrijving: 'Digital Marketing Manager voor het leiden van online marketing campaigns en het optimaliseren van conversies.',
+      vereisten: ['Google Ads certificering', 'Facebook Ads ervaring', 'Marketing automation', 'A/B testing', 'ROI optimalisatie'],
+      geplaatst: '4 dagen geleden'
+    },
+    {
+      id: 18,
+      titel: 'HR Advisor',
+      bedrijf: 'PeopleSupport',
+      locatie: 'Zwolle',
+      salaris: '€3.000 - €4.200',
+      type: 'Parttime',
+      categorie: 'HR',
+      beschrijving: 'HR Advisor voor het adviseren van managers en medewerkers over HR-gerelateerde vraagstukken en beleid.',
+      vereisten: ['HBO HR/Psychologie', 'HR advisory ervaring', 'Arbeidsrecht basis', 'Coaching vaardigheden', 'Discretie en integriteit'],
+      geplaatst: '5 dagen geleden'
+    },
+    {
+      id: 19,
+      titel: 'Key Account Manager',
+      bedrijf: 'BusinessGrowth Solutions',
+      locatie: 'Arnhem',
+      salaris: '€4.200 - €6.200',
+      type: 'Voltijd',
+      categorie: 'Verkoop',
+      beschrijving: 'Key Account Manager voor het beheren van strategische klantrelaties en het uitbreiden van business met bestaande accounts.',
+      vereisten: ['Account management (5+ jaar)', 'B2B sales ervaring', 'Relationeel sterk', 'Strategisch inzicht', 'Onderhandelingsexpert'],
+      geplaatst: '1 dag geleden'
+    },
+    {
+      id: 20,
+      titel: 'Financial Analyst',
+      bedrijf: 'InvestmentCorps',
+      locatie: 'Leiden',
+      salaris: '€3.400 - €5.000',
+      type: 'Stage',
+      categorie: 'Finance',
+      beschrijving: 'Financial Analyst stage voor het analyseren van investeringen en het opstellen van financiële modellen en rapportages.',
+      vereisten: ['WO Finance/Economie studie', 'Excel gevorderd', 'Analytisch vermogen', 'Financial modeling interesse', 'Leergierig en proactief'],
+      geplaatst: '2 dagen geleden'
     }
   ]);
 
